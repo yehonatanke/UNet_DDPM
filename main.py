@@ -14,7 +14,7 @@ from train.train import train_on_folder, test_on_folder
 
 # Configuration
 CONFIG = {
-    'mode': 'visualize_pipeline_one_image',# 'custom_train',  # 'train' or 'inference' or 'visualize' or 'test'
+    'mode': 'train',  # 'train' or 'inference' or 'visualize' or 'test'
     'image_size': 32,
     'batch_size': 128,
     'epochs': 100,
@@ -30,7 +30,7 @@ CONFIG = {
 }
 
 
-def train_pipeline(config):
+def train_pipeline(config, save_model=False, save_plots=True, display_samples=True):
     # Configuration
     device = get_device()
     image_size = config['image_size']
@@ -54,22 +54,28 @@ def train_pipeline(config):
     print("Starting training...")
     trainer.train(dataloader, n_epochs)
     
-    # Save the model
-    os.makedirs('checkpoints', exist_ok=True)
-    trainer.save_model(config['model_path'])
+    if save_model:
+        # Save the model
+        os.makedirs('checkpoints', exist_ok=True)
+        trainer.save_model(config['model_path'])
     
     # Generate samples
     print("Generating samples...")
     samples = trainer.generate_samples(n_samples=10, image_size=image_size)
     
     # Display samples
-    image = Image.new('RGB', size=(image_size*5, image_size*2))
-    for i, im in enumerate(samples):
-        image.paste(im, ((i%5)*image_size, image_size*(i//5)))
-    image.resize((image_size*4*5, image_size*4*2), Image.NEAREST).show()
-    
-    # Plot training losses
-    trainer.plot_losses()
+    if display_samples:
+        image = Image.new('RGB', size=(image_size*5, image_size*2))
+        for i, im in enumerate(samples):
+            image.paste(im, ((i%5)*image_size, image_size*(i//5)))
+        image.resize((image_size*4*5, image_size*4*2), Image.NEAREST).show()
+
+    if save_plots:
+           # Create output_plots directory and save training losses plot
+            os.makedirs('output_plots', exist_ok=True)
+            trainer.plot_losses(save_path='output_plots/training_losses.png')
+    else:
+            trainer.plot_losses()
 
 def inference_pipeline(config):
     device = get_device()
