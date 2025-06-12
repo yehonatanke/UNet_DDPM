@@ -1,25 +1,73 @@
 # U-Net Denoising Diffusion Probabilistic Model (DDPM)
 
-Diffusion model for image generation and denoising. 
+Denoising Diffusion Probabilistic Model (DDPM) using a U-Net architecture.
 
 [U-Net architecture] 
+
+<details>
+  <summary>Table of Contents</summary>
+  <ul style="list-style-type: circle;">
+    <li><a href="#u-net-denoising-diffusion-probabilistic-model-ddpm">U-Net Denoising Diffusion Probabilistic Model (DDPM)</a>
+      <ul style="list-style-type: circle;">
+        <li><a href="#model-performance">Model Performance</a>
+          <ul style="list-style-type: circle;">
+            <li><a href="#diffusion-process">Diffusion Process</a></li>
+            <li><a href="#training-progress">Training Progress</a></li>
+            <li><a href="#gradual-denoising-process">Gradual Denoising Process</a></li>
+            <li><a href="#heavy-noise-recovery">Heavy Noise Recovery</a></li>
+          </ul>
+        </li>
+        <li><a href="#architecture">Architecture</a>
+          <ul style="list-style-type: circle;">
+            <li><a href="#u-net-model">U-Net Model</a></li>
+            <li><a href="#diffusion-process-1">Diffusion Process</a></li>
+          </ul>
+        </li>
+        <li><a href="#model-components">Model Components</a>
+          <ul style="list-style-type: circle;">
+            <li><a href="#time-embedding">Time Embedding</a></li>
+            <li><a href="#residual-blocks">Residual Blocks</a></li>
+            <li><a href="#u-net-structure">U-Net Structure</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</details>
 
 
 ## Model Performance
 
+### Diffusion Process 
+
+![Euler's Identity Visualization](outputs/diffusion_process_euler.jpg)
+
+![Red Panda](outputs/diffusion_process_redpanda.jpg)
+
+![Frog on Leaf](outputs/diffusion_process_frogonleaf.jpg)
+
 ### Training Progress
-![Training Loss](output_plots/loss.jpeg)
-*Training loss curve showing the model's convergence over time*
+<img src="output_plots/loss.jpeg" width="300" alt="Training Loss">
+
+*Training loss*
 
 ### Gradual Denoising Process
-![Gradual Denoising](rec_gradual/out5.jpeg)
+
+<img src="rec_gradual/out.jpeg" width="600" alt="Training Loss">
+<img src="rec_gradual/out3.jpeg" width="600" alt="Training Loss">
+<img src="rec_gradual/out4.jpeg" width="600" alt="Training Loss">
+<img src="rec_gradual/out5.jpeg" width="600" alt="Training Loss">
+
 *Progressive denoising steps demonstrating the model's ability to recover image details*
 
 ### Heavy Noise Recovery
-![Heavy Noise Recovery](rec_heavy_noise/out10.jpeg)
+
+<img src="rec_heavy_noise/out7.jpeg" width="600" alt="Training Loss">
+<img src="rec_heavy_noise/out10.jpeg" width="600" alt="Training Loss">
+
 *Recover images from heavily corrupted inputs*
 
-> **Note:** The model demonstrates promising pattern recognition capabilities, though its full potential is limited by computational resources. With increased computing power, the model could achieve more refined results and faster convergence.
+> **Note:** The model demonstrates pattern recognition capabilities, though its full potential is limited by computational resources. With increased computing power, the model could achieve more refined results and faster convergence.
 
 
 ## Architecture
@@ -56,15 +104,5 @@ Diffusion model for image generation and denoising.
 - Upsampling path with skip connections
 - Final convolution for image reconstruction
 
-## Examples
 
-### Diffusion Process 
-
-![Euler's Identity Visualization](outputs/diffusion_process_euler.jpg)
-
-![Red Panda](outputs/diffusion_process_redpanda.jpg)
-
-![Frog on Leaf](outputs/diffusion_process_frogonleaf.jpg)
-
-![Whale](outputs/diffusion_process_whale.jpg)
 
