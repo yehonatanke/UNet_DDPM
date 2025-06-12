@@ -1,8 +1,26 @@
 # U-Net Denoising Diffusion Probabilistic Model (DDPM)
 
-Diffusion model for image generation. 
+Diffusion model for image generation and denoising. 
 
 [U-Net architecture] 
+
+
+## Model Performance
+
+### Training Progress
+![Training Loss](output_plots/loss.jpeg)
+*Training loss curve showing the model's convergence over time*
+
+### Gradual Denoising Process
+![Gradual Denoising](rec_gradual/out5.jpeg)
+*Progressive denoising steps demonstrating the model's ability to recover image details*
+
+### Heavy Noise Recovery
+![Heavy Noise Recovery](rec_heavy_noise/out10.jpeg)
+*Recover images from heavily corrupted inputs*
+
+> **Note:** The model demonstrates promising pattern recognition capabilities, though its full potential is limited by computational resources. With increased computing power, the model could achieve more refined results and faster convergence.
+
 
 ## Architecture
 
