@@ -46,8 +46,11 @@ Diffusion model for image generation.
 
 ### Diffusion Process 
 
-- [Euler's Identity Visualization](outputs/diffusion_process_euler.jpg)
-- [Red Panda](outputs/diffusion_process_redpanda.jpg)
-- [Frog on Leaf](outputs/diffusion_process_frogonleaf.jpg)
-- [Whale](outputs/diffusion_process_whale.jpg)
+![Euler's Identity Visualization](outputs/diffusion_process_euler.jpg)
+
+![Red Panda](outputs/diffusion_process_redpanda.jpg)
+
+![Frog on Leaf](outputs/diffusion_process_frogonleaf.jpg)
+
+![Whale](outputs/diffusion_process_whale.jpg)
 
