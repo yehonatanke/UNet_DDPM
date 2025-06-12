@@ -4,10 +4,6 @@ Diffusion model for image generation.
 
 [U-Net architecture] 
 
-[time embeddings]
-
-[residual connections]
-
 ## Architecture
 
 ### U-Net Model
